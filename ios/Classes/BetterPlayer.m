@@ -439,9 +439,15 @@ static inline CGFloat radiansToDegrees(CGFloat radians) {
         if (!_player.currentItem) {
             return;
         }
-        if (_player.status != AVPlayerStatusReadyToPlay) {
-            return;
-        }
+     //   if (_player.status != AVPlayerStatusReadyToPlay) {
+       //     return;
+      //  }
+
+       if (_player.currentItem.status != AVPlayerItemStatusReadyToPlay || _player.status != AVPlayerStatusReadyToPlay) {
+
+        return;
+       }
+
 
         CGSize size = [_player currentItem].presentationSize;
         CGFloat width = size.width;
